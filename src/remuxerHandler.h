@@ -72,6 +72,11 @@ public:
 	void onNtp(const MmtTlv::NTPv4& ntp) override;
 
 	void onPacketDrop(uint16_t packetId, const MmtTlv::MmtStream* mmtStream) override;
+	// BS4K データ放送 (ARIB-HTML5)
+	void onApplicationData(const MmtTlv::MmtStream& mmtStream, const MmtTlv::Mpu& mpu, const MmtTlv::DataUnit& dataUnit, const MmtTlv::MfuData& mfuData) override;
+	void onMhAit(const MmtTlv::MhAit& mhAit) override;
+	void onDamt(const MmtTlv::Damt& damt) override;
+	void onDdmt(const MmtTlv::Ddmt& ddmt) override;
 
 public:
 	using OutputCallback = std::function<void(const uint8_t*, size_t)>;

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -148,7 +148,7 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;TSDUCK_STATIC_LIBRARY;_DISABLE_CONSTEXPR_MUTEX_CONSTRUCTOR;NDEBUG;DANTTO4KDLL_EXPORTS;_WINDOWS;_USRDLL;WIN32_LEAN_AND_MEAN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <AdditionalOptions>/FS %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>$(ProjectDir)../src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -165,6 +165,7 @@
     <ClCompile Include="../src/accessControlDescriptor.cpp" />
     <ClCompile Include="../src/aes.cpp" />
     <ClCompile Include="../src/damt.cpp" />
+    <ClCompile Include="../src/dataBroadcastHandler.cpp" />
     <ClCompile Include="../src/dcct.cpp" />
     <ClCompile Include="../src/ddmt.cpp" />
     <ClCompile Include="../src/emt.cpp" />
@@ -408,3 +409,4 @@
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
 </Project>
+

@@ -1,3 +1,4 @@
+#include "dataBroadcastHandler.h"
 #include "bonTuner.h"
 #include <iostream>
 #include <mutex>
@@ -114,6 +115,7 @@ void CBonTuner::PurgeTsStream(void) {
 	inputBuffer.clear();
 	g_bonDriverContext.remuxOutput.clear();
 	g_bonDriverContext.demuxer.clear();
+	DataBroadcastHandler::instance().clear();
 
 	return pBonDriver2->PurgeTsStream();
 }
@@ -140,6 +142,7 @@ const bool CBonTuner::SetChannel(const uint32_t dwSpace, const uint32_t dwChanne
 	inputBuffer.clear();
 	g_bonDriverContext.remuxOutput.clear();
 	g_bonDriverContext.demuxer.clear();
+	DataBroadcastHandler::instance().clear();
 
 	if (config.mmtsDumpPath != "") {
 		if (g_bonDriverContext.mmtsDumpFs) {

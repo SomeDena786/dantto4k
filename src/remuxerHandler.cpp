@@ -1,4 +1,5 @@
 ﻿#include "remuxerHandler.h"
+#include "dataBroadcastHandler.h"
 #include "accessControlDescriptor.h"
 #include "contentCopyControlDescriptor.h"
 #include "mhAudioComponentDescriptor.h"
@@ -188,6 +189,23 @@ void RemuxerHandler::onSubtitleData(const MmtTlv::MmtStream& mmtStream, const st
         }
         writeSubtitle(mmtStream, pesData, std::max(static_cast<uint64_t>(pts), currentPts));
     }
+}
+
+void RemuxerHandler::onApplicationData(const MmtTlv::MmtStream& mmtStream, const MmtTlv::Mpu& mpu,
+    const MmtTlv::DataUnit& dataUnit, const MmtTlv::MfuData& mfuData) {
+    DataBroadcastHandler::instance().onApplicationData(mmtStream, mpu, dataUnit, mfuData);
+}
+
+void RemuxerHandler::onMhAit(const MmtTlv::MhAit& mhAit) {
+    DataBroadcastHandler::instance().onMhAit(mhAit);
+}
+
+void RemuxerHandler::onDamt(const MmtTlv::Damt& damt) {
+    DataBroadcastHandler::instance().onDamt(damt);
+}
+
+void RemuxerHandler::onDdmt(const MmtTlv::Ddmt& ddmt) {
+    DataBroadcastHandler::instance().onDdmt(ddmt);
 }
 
 void RemuxerHandler::onPacketDrop(uint16_t packetId, const MmtTlv::MmtStream* mmtStream) {
