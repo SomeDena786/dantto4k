@@ -251,6 +251,7 @@
     <ClCompile Include="../src/videoComponentDescriptor.cpp" />
     <ClCompile Include="../src/aribCharsetTables.cpp" />
     <ClCompile Include="../src/aribCharsetEncoder.cpp" />
+    <ClCompile Include="../src/dataBroadcastHandler.cpp" />
     <ClCompile Include="..\src\ttml\b24_converter.cpp" />
     <ClCompile Include="..\src\ttml\parser.cpp" />
     <ClCompile Include="..\src\ttml\resolver.cpp" />
